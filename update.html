@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-sm bg-dark"> 
+    <a class="navbar-brand" href="#">
+        <img src="http://images.webestools.com/postIts/img_10.png"  alt="logo" style="width:40px;">
+    </a>
+    <span class="navbar-text">
+        <b style="font-style: italic; color: white;"> Note Maker </b>
+      </span>
+       <div class="nav-item"> 
+        <a class="nav-link" href="{{ url_for('index') }}"><button class="btn btn-light btn-sm" type="button" >Home</button></a> 
+    </div> 
+    </nav>
+<div class="container-fluid">
+    <h1 style="text-align: center">Update Notes</h1>
+        <form action="/update/{{task.id}}" method="POST">
+            <div class="row" >
+            <input type="text"  name="content" id="content" value="{{task.content}}" style="height:200px">
+            </div>
+            <div class="row" style="padding-left: 50%;">
+            <input type="submit" value="Update" >
+        </div>
+        </form>
+</div>
+{% endblock %}
